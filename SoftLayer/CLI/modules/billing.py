@@ -30,8 +30,8 @@ Required:
   -l, --limit=LIMIT No. of results. Default results are 25    
 
 Filters:
-  --from-date	Shows invoices from the date it was created   
-  --to-date	Shows invoices till to-date
+  --from-date	Shows invoices from the date it was created. Format will be 'MM/dd/yyyy HH:mm:ss'
+  --to-date	Shows invoices till to-date. Format will be 'MM/dd/yyyy HH:mm:ss'
   --type	The type of an Invoice  example. New, Recurring etc...
   --id      Shows invoice of passed Id. 
 """
