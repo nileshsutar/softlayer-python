@@ -33,6 +33,7 @@ Storage:
   snapshot  iSCSI snapshots
 
 General:
+  billing   Disaply an account billing information
   config    View and edit configuration for this tool
   ticket    Manage account tickets
   summary   Display an overall summary of your account
