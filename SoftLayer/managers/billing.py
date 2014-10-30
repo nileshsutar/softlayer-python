@@ -7,6 +7,7 @@
 import SoftLayer
 from SoftLayer import utils
 
+
 class BillingManager(utils.IdentifierMixin, object):
     """
     Manages Billings
@@ -14,21 +15,22 @@ class BillingManager(utils.IdentifierMixin, object):
 
     def __init__(self, client):
         self.client = client
-        self.billingInfo = self.client['Billing_Info']
+        #self.billingInfo = self.client['Billing_Invoice_Item']
+        self.billingInfo = self.client['Billing_Invoice']
 
     def list_billing(self, typeCode=None, **kwargs):
         """
         List all billing information of an account.
         """
-        object_mask = 'mask[id, createDate, typeCode, amount, endingBalance, companyName]'
+        object_mask = 'mask[id, createDate, typeCode, amount,\
+                      endingBalance, companyName]'
 
-        object_filter = {'invoices':dict()}
-        
+        object_filter = {'invoices': dict()}
         type_filter = dict()
         if typeCode:
             type_filter = {
                     'typeCode': {
-                    'operation': typeCode.upper() 
+                    'operation': typeCode.upper()
                     },
             }
         if type_filter:
@@ -52,9 +54,11 @@ class BillingManager(utils.IdentifierMixin, object):
         
         if date_filter['createDate']['options']:
             object_filter['invoices'].update(date_filter)
-        
         try:
-            invoices_iter = self.client['Account'].getInvoices(mask=object_mask, filter=object_filter, **kwargs)
+            invoices_iter = self.client['Account'].getInvoices(\
+                                            mask=object_mask, \
+                                            filter=object_filter,\
+                                            **kwargs)
             return invoices_iter
         except Exception as e:
             raise e
@@ -63,5 +67,11 @@ class BillingManager(utils.IdentifierMixin, object):
         """
         Get the details of billing
         """
-        return self.billingInfo.getObject(id=billing_id)
-
+        #import pdb;pdb.set_trace()
+        try:
+            billing_info = self.billingInfo.getObject(\
+                                            id=billing_id)
+            #billing_info = self.billingInfo.getBillingItem(id=billing_id)
+            return billing_info
+        except Exception as e:
+            raise e

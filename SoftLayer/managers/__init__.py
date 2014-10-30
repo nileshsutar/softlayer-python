@@ -27,8 +27,9 @@ from SoftLayer.managers.ssl import SSLManager  # NOQA
 from SoftLayer.managers.ticket import TicketManager  # NOQA
 from SoftLayer.managers.vs import VSManager  # NOQA
 
-__all__ = ['BillingManager', 'CCIManager', 'DNSManager', 'FirewallManager', 'HardwareManager',
-           'ImageManager', 'MessagingManager', 'MetadataManager', 'CDNManager',
-           'NetworkManager', 'SshKeyManager', 'SSLManager', 'TicketManager',
+__all__ = ['BillingManager', 'CCIManager', 'DNSManager', 'FirewallManager',
+           'HardwareManager', 'ImageManager', 'MessagingManager',
+           'MetadataManager', 'CDNManager', 'NetworkManager',
+           'SshKeyManager', 'SSLManager', 'TicketManager',
            'VSManager', 'ISCSIManager', 'LoadBalancerManager',
            'OrderingManager']

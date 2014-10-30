@@ -64,8 +64,8 @@ DEBUG_LOGGING_MAP = {
     '0': logging.CRITICAL,
     '1': logging.WARNING,
     '2': logging.INFO,
-    '3': logging.DEBUG
-}
+    '3': logging.DEBUG,
+    }
 
 VALID_FORMATS = ['raw', 'table', 'json']
 
@@ -188,8 +188,8 @@ def main(args=sys.argv[1:], env=environment.Environment()):
 
         kwargs = {
             'proxy': command_args.get('--proxy'),
-            'config_file': command_args.get('--config')
-        }
+            'config_file': command_args.get('--config')}
+
         if command_args.get('--timings'):
             client = SoftLayer.TimedClient(**kwargs)
         else:
