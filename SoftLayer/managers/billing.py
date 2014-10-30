@@ -67,11 +67,9 @@ class BillingManager(utils.IdentifierMixin, object):
         """
         Get the details of billing
         """
-        #import pdb;pdb.set_trace()
         try:
             billing_info = self.billingInfo.getObject(\
                                             id=billing_id)
-            #billing_info = self.billingInfo.getBillingItem(id=billing_id)
             return billing_info
         except Exception as e:
             raise e
